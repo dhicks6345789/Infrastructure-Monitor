@@ -1,4 +1,4 @@
-# Server-Monitor
+# Infrastructure-Monitor
 Python webserver that monitors devices on a network
 
 I wrote this because of having some issues and waiting for people to tell us there's a problem is less than ideal.
