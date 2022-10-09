@@ -23,7 +23,7 @@ def readOptionsFile(theFilename):
                         headerRow = [itemValue]
                         state = 2
                     elif state == 2:
-                        if itemIndex != 0:
+                        if itemIndex != 0 and not pandas.isna(itemValue):
                             headerRow.append(itemValue)
                         else:
                             print(headerRow)
