@@ -1,7 +1,17 @@
-from flask import Flask, url_for, render_template, request
-import datetime as dt
 import socket
 import os
+
+def readOptionsFile(theFilename):
+    options = {}
+    if os.path.exists(theFilename):
+        if theFilename.lower().endswith(".xlsx"):
+            optionsDataframe = pandas.read_excel(theFilename, header=None)
+            for optionIndex, optionValue in optionsDataframe.iterrows():
+                for itemIndex, itemValue in optionValue.items():
+                    print(itemValue)
+	return(options)
+
+readOptionsFile("settings.xlsx")
 
 #Config options=======================================================
 #device names and IPs do not represent real devices. 
