@@ -35,7 +35,7 @@ def readOptionsFile(theFilename):
                             print(newDataFrame)
                             options.append(newDataFrame)
                             state = 0
-                        elif pandas.isna(itemValue):
+                        elif not pandas.isna(itemValue):
                             if itemIndex == 0:
                                 rowIndex = rowIndex + 1
                             print(itemIndex)
