@@ -38,6 +38,7 @@ def readOptionsFile(theFilename):
                         elif pandas.isna(itemValue):
                             if itemIndex == 0:
                                 rowIndex = rowIndex + 1
+                            print(itemIndex)
                             newDataFrame.at[rowIndex, headerRow[itemIndex]] = itemValue
     return(options)
 
