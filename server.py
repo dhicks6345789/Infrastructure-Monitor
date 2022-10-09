@@ -26,19 +26,19 @@ def readOptionsFile(theFilename):
                         if itemIndex != 0 and not pandas.isna(itemValue):
                             headerRow.append(itemValue)
                         else:
-                            print(headerRow)
+                            #print(headerRow)
                             newDataFrame = pandas.DataFrame(columns=headerRow)
                             state = 3
                             rowIndex = 1
                     if state == 3:
                         if itemIndex == 0 and pandas.isna(itemValue):
-                            print(newDataFrame)
+                            #print(newDataFrame)
                             options.append(newDataFrame)
                             state = 0
                         elif not pandas.isna(itemValue):
                             if itemIndex == 0:
                                 rowIndex = rowIndex + 1
-                            print(itemIndex)
+                            #print(itemIndex)
                             newDataFrame.at[rowIndex, headerRow[itemIndex]] = itemValue
     return(options)
 
