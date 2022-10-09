@@ -33,8 +33,8 @@ def readOptionsFile(theFilename):
                         if pandas.isna(itemValue):
                             options.append(newDataFrame)
                             state = 0
-                        else:
-                            print(itemValue)
+                        #else:
+                            #itemValue
     return(options)
 
 options = readOptionsFile("settings.xlsx")
