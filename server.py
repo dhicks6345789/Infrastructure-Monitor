@@ -97,7 +97,7 @@ def build_table(dfList, c):
     return newstr
 
 #for level in levels:
-for levelIndex, level in optionsDataframe.iterrows():
+for levelIndex, level in levels.iterrows():
     print(level[0])
     # Title.
     htmlstr += (f"<h2>{level[1]}</h2>\n")
