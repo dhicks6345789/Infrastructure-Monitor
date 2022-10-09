@@ -34,12 +34,15 @@ def readOptionsFile(theFilename):
                         if itemIndex == 0 and pandas.isna(itemValue):
                             #print(newDataFrame)
                             options.append(newDataFrame)
+                            newDataFrame = None
                             state = 0
                         elif not pandas.isna(itemValue):
                             if itemIndex == 0:
                                 rowIndex = rowIndex + 1
                             #print(itemIndex)
                             newDataFrame.at[rowIndex, headerRow[itemIndex]] = itemValue
+        if newDataFrame != None:
+            options.append(newDataFrame)
     return(options)
 
 options = readOptionsFile("settings.xlsx")
