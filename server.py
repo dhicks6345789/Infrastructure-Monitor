@@ -131,4 +131,4 @@ for levelIndex, level in levels.iterrows():
             device_results.append([device[0], result])
     htmlstr += build_table(device_results, cells)
 iteration_counter += 1
-print(render_template('index.html', {"htmlstr":htmlstr, "iter":iteration_counter, "school":school}))
+print(render_template('index.html', {"htmlstr":htmlstr, "iter":str(iteration_counter), "school":school}))
