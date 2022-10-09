@@ -41,7 +41,7 @@ def readOptionsFile(theFilename):
                                 rowIndex = rowIndex + 1
                             #print(itemIndex)
                             newDataFrame.at[rowIndex, headerRow[itemIndex]] = itemValue
-        if newDataFrame != None:
+        if state == 3:
             options.append(newDataFrame)
     return(options)
 
