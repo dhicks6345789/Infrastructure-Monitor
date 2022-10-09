@@ -16,8 +16,8 @@ def readOptionsFile(theFilename):
                     if state == 0 and itemIndex == 0:
                         if str(itemValue).strip().endswith(":"):
                             optionName = itemValue.strip()[:-1]
-                        if state == 0 and itemIndex == 1:
-                            options[0][optionName] = itemValue.strip()
+                    elif state == 0 and itemIndex == 1:
+                        options[0][optionName] = itemValue.strip()
     return(options)
 
 options = readOptionsFile("settings.xlsx")
