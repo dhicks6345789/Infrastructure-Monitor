@@ -66,7 +66,7 @@ print(school)
 iteration_counter = 0
 
 template_dir = os.path.abspath('./')
-app.debug=Tru
+app.debug=True
 
 htmlstr = ""
 
