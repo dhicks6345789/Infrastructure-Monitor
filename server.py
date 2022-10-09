@@ -6,17 +6,22 @@ import socket
 
 
 def readOptionsFile(theFilename):
-    options = {}
+    state = 0
+    options = [{}]
     if os.path.exists(theFilename):
         if theFilename.lower().endswith(".xlsx"):
             optionsDataframe = pandas.read_excel(theFilename, header=None)
             for optionIndex, optionValue in optionsDataframe.iterrows():
                 for itemIndex, itemValue in optionValue.items():
-                    if not pandas.isna(itemValue):
-                        print(itemValue)
+                    if state == 0 and itemIndex == 0:
+                        if str(itemValue).strip().endswith(":"):
+                            optionName = itemValue.strip()[:-1]
+                        if state == 0 and itemIndex == 1:
+                            options[0][optionName] = itemValue.strip()
     return(options)
 
-readOptionsFile("settings.xlsx")
+options = readOptionsFile("settings.xlsx")
+print(options)
 
 #Config options=======================================================
 #device names and IPs do not represent real devices. 
