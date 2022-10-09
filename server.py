@@ -27,8 +27,14 @@ def readOptionsFile(theFilename):
                             headerRow.append(itemValue)
                         else:
                             print(headerRow)
+                            newDataFrame = pandas.DataFrame(columns=headerRow)
                             state = 3
-                            
+                    if state == 3:
+                        if pandas.isna(itemValue):
+                            options.append(newDataFrame)
+                            state = 0
+                        else:
+                            print(itemValue)
     return(options)
 
 options = readOptionsFile("settings.xlsx")
