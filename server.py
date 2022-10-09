@@ -96,11 +96,13 @@ def build_table(dfList, c):
     newstr += ("</tr>\n</table>\n\n")
     return newstr
 
-for level in levels:      
+#for level in levels:
+for levelIndex, level in optionsDataframe.iterrows():
+    print(level[0])
     # Title.
     htmlstr += (f"<h2>{level[1]}</h2>\n")
     device_results = []
-    filtered_devices = [tup for tup in devices if tup[3]==level[0]]
+    filtered_devices = [tup for tup in devices if tup[3] == level[0]]
     
     for device in filtered_devices:
         result = test_port(device[1],device[2])
