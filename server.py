@@ -98,16 +98,13 @@ def build_table(dfList, c):
 
 #for level in levels:
 for levelIndex, level in levels.iterrows():
-    print(level[0])
     # Title.
     htmlstr += (f"<h2>{level[1]}</h2>\n")
     device_results = []
-    filtered_devices = [tup for tup in devices if tup[3] == level[0]]
-    
-    for device in filtered_devices:
-        result = test_port(device[1],device[2])
-        device_results.append([device[0],result])
-
-    htmlstr += build_table(device_results,cells)
+    for deviceIndex, device in devices.iterrows():
+        if device[3] == level[0]:
+            result = test_port(device[1], device[2])
+            device_results.append([device[0], result])
+    htmlstr += build_table(device_results, cells)
 iteration_counter += 1
 print(render_template('index.html', htmlstr=htmlstr, iter=iteration_counter, school=school))
