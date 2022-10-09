@@ -1,4 +1,5 @@
 import os
+import numpy
 import pandas
 import socket
 
@@ -11,7 +12,8 @@ def readOptionsFile(theFilename):
             optionsDataframe = pandas.read_excel(theFilename, header=None)
             for optionIndex, optionValue in optionsDataframe.iterrows():
                 for itemIndex, itemValue in optionValue.items():
-                    print(itemValue)
+                    if itemValue != numpy.nan:
+                        print(itemValue)
     return(options)
 
 readOptionsFile("settings.xlsx")
