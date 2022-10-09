@@ -30,7 +30,7 @@ def readOptionsFile(theFilename):
                             newDataFrame = pandas.DataFrame(columns=headerRow)
                             state = 3
                     if state == 3:
-                        if pandas.isna(itemValue):
+                        if itemIndex == 0 and pandas.isna(itemValue):
                             options.append(newDataFrame)
                             state = 0
                         #else:
