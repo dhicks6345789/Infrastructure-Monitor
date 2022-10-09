@@ -12,7 +12,7 @@ def readOptionsFile(theFilename):
             optionsDataframe = pandas.read_excel(theFilename, header=None)
             for optionIndex, optionValue in optionsDataframe.iterrows():
                 for itemIndex, itemValue in optionValue.items():
-                    if itemValue != numpy.nan:
+                    if not pandas.isna(itemValue):
                         print(itemValue)
     return(options)
 
