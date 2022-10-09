@@ -9,7 +9,7 @@ def readOptionsFile(theFilename):
             for optionIndex, optionValue in optionsDataframe.iterrows():
                 for itemIndex, itemValue in optionValue.items():
                     print(itemValue)
-	return(options)
+    return(options)
 
 readOptionsFile("settings.xlsx")
 
