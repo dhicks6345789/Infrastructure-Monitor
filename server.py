@@ -65,7 +65,7 @@ def writeFile(theFilename, theFileData):
 def render_template(theInputFile, theReplacements):
     result = readFile(theInputFile)
     for replacementName in theReplacements.keys():
-        result = result.replace("{{ " + replacementName + " }}", theReplacements[replacementName]
+        result = result.replace("{{ " + replacementName + " }}", theReplacements[replacementName])
     return result
 
 # Config options ======================================================
