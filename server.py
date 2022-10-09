@@ -19,9 +19,9 @@ def readOptionsFile(theFilename):
                     elif state == 1 and itemIndex == 1:
                         options[0][optionName] = itemValue
                         state = 0
-                    elif state == 1 and itemIndex == 0 and not pandas.isna(itemValue):
-                        state = 2
+                    elif state == 0 and itemIndex == 0 and not pandas.isna(itemValue):
                         headerRow = [itemValue]
+                        state = 2
                     elif state == 2:
                         if itemIndex != 0:
                             headerRow.append(itemValue)
