@@ -44,6 +44,30 @@ def readOptionsFile(theFilename):
             options.append(newDataFrame)
     return(options)
 
+# Reads the given file, returns the entire contents as a single string.
+def readFile(theFilename):
+	inHandle = open(theFilename)
+	result = inHandle.read()
+	inHandle.close()
+	return result
+
+# Handy utility function to write a file. Takes a file path and either a single string or an array of strings. If an array, will write each
+# string to the given file path with a newline at the end.
+def writeFile(theFilename, theFileData):
+	fileDataHandle = open(theFilename, "w")
+	if isinstance(theFileData, str):
+		fileDataHandle.write(theFileData)
+	else:
+		for dataLine in theFileData:
+			fileDataHandle.write((str(dataLine) + "\n").encode())
+	fileDataHandle.close()
+
+def render_template(theInputFile, theReplacements):
+    result = readFile(theInputFile)
+    for replacementName in theReplacements.keys():
+        result = result.replace("{{ " + replacementName + " }}", theReplacements[replacementName]
+    return result
+
 # Config options ======================================================
 options = readOptionsFile("settings.xlsx")
 #levels = [(1, 'Core'), (2, 'Hosts'), (3, 'Servers'), (4, 'Buildings')]
@@ -107,4 +131,4 @@ for levelIndex, level in levels.iterrows():
             device_results.append([device[0], result])
     htmlstr += build_table(device_results, cells)
 iteration_counter += 1
-print(render_template('index.html', htmlstr=htmlstr, iter=iteration_counter, school=school))
+print(render_template('index.html', {"htmlstr":htmlstr, "iter":iteration_counter, "school":school}))
