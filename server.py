@@ -26,7 +26,7 @@ def readOptionsFile(theFilename):
                         if itemIndex != 0 and not pandas.isna(itemValue):
                             headerRow.append(itemValue)
                         else:
-                            #print(headerRow)
+                            print(headerRow)
                             newDataFrame = pandas.DataFrame(columns=headerRow)
                             state = 3
                             rowIndex = 1
